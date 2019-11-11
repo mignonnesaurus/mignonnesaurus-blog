@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-cd tour/screenshots
+cd demos/screenshots
 for i in *.png; do open "$i"; done
