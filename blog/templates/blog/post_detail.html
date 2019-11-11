@@ -8,7 +8,7 @@
             </div>
         {% else %}
             {% if user.is_authenticated %}
-                <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+                <a class="btn btn-default publish" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
             {% endif %}
         {% endif %}
         {% if user.is_authenticated %}
@@ -19,7 +19,7 @@
         <p>{{ post.text|linebreaks }}</p>
     </div>
     <hr>
-    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+    <a class="btn btn-default add-comment" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
     {% for comment in post.comments.all %}
     {% if user.is_authenticated or comment.approved %}
         <div class="comment">
