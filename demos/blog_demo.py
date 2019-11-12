@@ -8,6 +8,7 @@ MY_BLOG_PASSWORD = os.getenv('MY_BLOG_PASSWORD')
 class BlogDemo(BaseCase):
     def test_blog(self):
         self.open(self.start_page)
+        self.maximize_window()
 
         home_page = self.get_current_url()
         self.open(f'{home_page}admin/')
@@ -40,7 +41,7 @@ class BlogDemo(BaseCase):
 
         self.click('.add-comment')
         self.type('#id_author', 'Han Solo')
-        self.type('#id_text', 'Am I invited? 💔')
+        self.type('#id_text', 'Am I in the movie? 💔')
         self.click('button[type="submit"].save')
 
         self.save_screenshot('posts_list_with_comments.png', folder='demos/screenshots')
