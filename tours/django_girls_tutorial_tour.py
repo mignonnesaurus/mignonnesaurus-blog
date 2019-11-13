@@ -3,9 +3,8 @@ from seleniumbase import BaseCase
 
 class DjangoGirlsTutorialTour(BaseCase):
     def test_django_girl_tutorial(self):
-        self.open('https://tutorial.djangogirls.org/en/')
         self.maximize_window()
-
+        self.open('https://tutorial.djangogirls.org/en/')
         self.wait_for_element('input[type="text"]')
 
         self.create_bootstrap_tour()
