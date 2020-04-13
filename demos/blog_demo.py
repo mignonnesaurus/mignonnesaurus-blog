@@ -15,36 +15,37 @@ class BlogDemo(BaseCase):
 
         self.type('#id_username', MY_BLOG_USERNAME)
         self.type('#id_password', MY_BLOG_USERNAME)
-        self.save_screenshot('login_page.png', folder='demos/screenshots')
         self.click('input[type="submit"]')
-        self.save_screenshot('admin_page.png', folder='demos/screenshots')
 
         self.click('link=VIEW SITE')
 
         self.click('.glyphicon-plus')
-        self.save_screenshot('add_new_post.png', folder='demos/screenshots')
-        self.type('#id_title', 'Star Wars IX: The Rise of Skywalker')
-        self.type('#id_text', 'Star Wars IX: The Rise of Skywalker will be released on December 18, 2019. ')
+        self.type('#id_title', 'Your Favorite Star Wars Quotes')
+        self.type('#id_text', 'What are your favorite Star Wars Quotes?')
 
         self.click('button[type="submit"].save')
 
         self.click('.publish')
         self.open(home_page)
-        self.save_screenshot('posts_list.png', folder='demos/screenshots')
 
-        self.click('link=Star Wars IX: The Rise of Skywalker')
-        self.click('.add-comment')
-        self.save_screenshot('add_comment.png', folder='demos/screenshots')
-        self.type('#id_author', 'Yoda')
-        self.type('#id_text', 'Happy I am ❤️')
-        self.click('button[type="submit"].save')
-
+        self.click('link=Your Favorite Star Wars Quotes')
         self.click('.add-comment')
         self.type('#id_author', 'Han Solo')
-        self.type('#id_text', 'Am I in the movie? 💔')
+        self.type('#id_text', '"Crazy thing is, it’s true. The Force, the Jedi — all of it. It’s all true."️')
         self.click('button[type="submit"].save')
+        self.click('.glyphicon-ok')
 
-        self.save_screenshot('posts_list_with_comments.png', folder='demos/screenshots')
+        self.click('.add-comment')
+        self.type('#id_author', 'Yoda')
+        self.type('#id_text', '"Do. Or do not. There is no try."️')
+        self.click('button[type="submit"].save')
+        self.click('.glyphicon-ok')
+
+        self.click('.add-comment')
+        self.type('#id_author', 'Darth Vader')
+        self.type('#id_text', '"I find your lack of faith disturbing."')
+        self.click('button[type="submit"].save')
+        self.click('.glyphicon-ok')
 
         self.click('.glyphicon-remove')
 
