@@ -23,9 +23,9 @@ class BlogDemo(BaseCase):
         self.type('#id_title', 'Your Favorite Star Wars Quotes')
         self.type('#id_text', 'What are your favorite Star Wars Quotes?')
 
-        self.click('button[type="submit"].save')
+        self.click('#save-post')
 
-        self.click('.publish')
+        self.click('#publish-post')
         self.open(home_page)
 
         self.click('link=Your Favorite Star Wars Quotes')

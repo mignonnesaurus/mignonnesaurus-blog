@@ -8,12 +8,15 @@
             </div>
         {% else %}
             {% if user.is_authenticated %}
-                <a class="btn btn-default publish" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+                <a id="publish-post" class="btn btn-default publish"
+                   href="{% url 'post_publish' pk=post.pk %}">Publish</a>
             {% endif %}
         {% endif %}
         {% if user.is_authenticated %}
-            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-            <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span
+                    class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span
+                    class="glyphicon glyphicon-remove"></span></a>
         {% endif %}
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaks }}</p>
