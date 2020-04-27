@@ -14,7 +14,7 @@ class BlogDemo(BaseCase):
         self.open(f'{home_page}admin/')
 
         self.type('#id_username', MY_BLOG_USERNAME)
-        self.type('#id_password', MY_BLOG_USERNAME)
+        self.type('#id_password', MY_BLOG_PASSWORD)
         self.click('input[type="submit"]')
 
         self.click('link=VIEW SITE')
