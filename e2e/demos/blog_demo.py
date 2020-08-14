@@ -14,10 +14,10 @@ MY_BLOG_PASSWORD = os.getenv('MY_BLOG_PASSWORD')
 
 class BlogDemo(BaseCase):
     def test_post_interactions(self):
-        home_page = HomePage(self)
-        new_post_page = NewPostPage(self)
-        post_page = PostPage(self)
-        new_comment_page = NewCommentPage(self)
+        home_page = HomePage(self.driver, self.start_page)
+        new_post_page = NewPostPage(self.driver)
+        post_page = PostPage(self.driver)
+        new_comment_page = NewCommentPage(self.driver)
 
         self.login()
 
@@ -49,6 +49,6 @@ class BlogDemo(BaseCase):
         home_page.logout()
 
     def login(self):
-        admin_login_page = AdminLoginPage(self)
+        admin_login_page = AdminLoginPage(self.driver, self.start_page)
         admin_login_page.load()
         admin_login_page.login(MY_BLOG_USERNAME, MY_BLOG_PASSWORD)

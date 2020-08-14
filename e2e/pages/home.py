@@ -1,20 +1,23 @@
+from selenium.webdriver.common.by import By
+
+
 class HomePage:
     ADD_LINK = '.glyphicon-plus'
-    BLOG_TITLE_LINK = 'link='
-    LOGOUT_LINK = 'link=Log out'
-    VIEW_SITE_LINK = 'link=VIEW SITE'
+    LOGOUT_LINK_TEXT = 'Log out'
+    VIEW_SITE_LINK_TEXT = 'VIEW SITE'
 
-    def __init__(self, browser):
-        self.browser = browser
+    def __init__(self, driver, start_page):
+        self.driver = driver
+        self.start_page = start_page
 
     def load(self):
-        self.browser.open(self.browser.start_page)
+        self.driver.get(self.start_page)
 
     def new_post(self):
-        self.browser.click(self.ADD_LINK)
+        self.driver.find_element(by=By.CSS_SELECTOR, value=self.ADD_LINK).click()
 
     def view_post(self, title):
-        self.browser.click(self.BLOG_TITLE_LINK + title)
+        self.driver.find_element(by=By.LINK_TEXT, value=title).click()
 
     def logout(self):
-        self.browser.click(self.LOGOUT_LINK)
+        self.driver.find_element(by=By.LINK_TEXT, value=self.LOGOUT_LINK_TEXT).click()
